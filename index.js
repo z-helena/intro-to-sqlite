@@ -13,7 +13,6 @@ const PORT = 4000;
 // https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded
 // Middleware that parses POST / PUT requests from a client
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Handle CORS w/ client
 // For more information about CORS (Cross-Origin Resource Sharing):
