@@ -1,9 +1,9 @@
 //-----------------------------
 // #region Setup
 //-----------------------------
-const express = require("express");
+import express from "express";
 const app = express();
-const db = require("./db");
+import * as db from "./db.js"; 
 const PORT = 4000;
 //#endregion Setup
 

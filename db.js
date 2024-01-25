@@ -1,9 +1,11 @@
 //-----------------------------
 //#region Database Connection
 //-----------------------------
-const path = require("path");
-const sqlite = require("sqlite3").verbose();
-const dbFile = path.join(__dirname, "foo.db");
+import path from "path";
+import { fileURLToPath } from 'url';
+import sqlite3 from "sqlite3";
+const sqlite = sqlite3.verbose();
+const dbFile = path.join(path.dirname(fileURLToPath(import.meta.url)), "foo.db");
 const db = new sqlite.Database(dbFile, (error) => {
   if (error) return console.error(error.message);
   console.log(`Connected to database ${dbFile}`);
@@ -17,7 +19,7 @@ const db = new sqlite.Database(dbFile, (error) => {
 /**
  * Gets a single user by id
  */
-const getUserById = (request, response) => {
+export const getUserById = (request, response) => {
   // Parse the id to generate a SQLite query
   const id = parseInt(request.params.id);
   const query = `SELECT * FROM user WHERE id = ?`;
@@ -43,10 +45,3 @@ const getUserById = (request, response) => {
 
 // ----- FILL IN BELOW -----
 // Write and export the rest of the functions needed by index.js!
-
-//#endregion Routes
-
-// This allows `index.js` to use functions defined in this file.
-module.exports = {
-  getUserById,
-};
