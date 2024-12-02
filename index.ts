@@ -2,8 +2,8 @@
 // #region Setup
 //-----------------------------
 import express from "express";
+import * as db from "./db"; 
 const app = express();
-import * as db from "./db.js"; 
 const PORT = 4000;
 //#endregion Setup
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     "http://localhost:8080",
   ];
   const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
+  if (origin && allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
   // Allow specific requests

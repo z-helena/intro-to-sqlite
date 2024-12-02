@@ -6,10 +6,10 @@
   "scripts": {
     "test": "nodemon index.js"
   },
-  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^5.0.0",
     "express": "^4.17.2",
     "sqlite3": "^5.0.2"
   }

@@ -2,10 +2,12 @@
 //#region Database Connection
 //-----------------------------
 import path from "path";
-import { fileURLToPath } from 'url';
+import {Request, Response} from 'express';
 import sqlite3 from "sqlite3";
 const sqlite = sqlite3.verbose();
-const dbFile = path.join(path.dirname(fileURLToPath(import.meta.url)), "foo.db");
+const dbFile = path.join(__dirname, "foo.db");
+// below is the line for vanilla ES6 js to work; not necessary with typescript
+// const dbFile = path.join(path.dirname(fileURLToPath(import.meta.url)), "foo.db");
 const db = new sqlite.Database(dbFile, (error) => {
   if (error) return console.error(error.message);
   console.log(`Connected to database ${dbFile}`);
@@ -19,7 +21,7 @@ const db = new sqlite.Database(dbFile, (error) => {
 /**
  * Gets a single user by id
  */
-export const getUserById = (request, response) => {
+export const getUserById = (request: Request, response: Response) => {
   // Parse the id to generate a SQLite query
   const id = parseInt(request.params.id);
   const query = `SELECT * FROM user WHERE id = ?`;
