@@ -1,8 +1,8 @@
 # Intro to SQLite
-This repo provides a very basic template for using `sqlite` with `express`. It is part of the [Software Engineering](https://edu.lester-lee.com/software-engineering/) course.
+This repo provides a very basic template for using `sqlite` with `express`. 
 
 ## Assignment
-Write the rest of the missing endpoints in `index.js` to create a simple backend for a CRUD app.  This will require you to write code in `db.js` as well!
+Write the rest of the missing endpoints in `index.ts` to create a simple backend for a CRUD app.  This will require you to write code in `db.ts` as well!
 
 The [documentation for sqlite3](https://github.com/mapbox/node-sqlite3/wiki/API) will be very helpful.
 
